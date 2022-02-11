@@ -1,2 +1,2 @@
 # Cashd
-Register cashflow in a local database, delete, and visualize it!
+Register cashflow on a local database, delete, and visualize it!
