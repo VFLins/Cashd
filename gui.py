@@ -2,14 +2,17 @@ import tkinter as tk
 from tkinter.font import Font
 import db_manager as dbm
 
-def button1_click():
+def button1_click(self):
     with FrontPage() as fp:
-        fp.label_entry1.text = fp.entry1.get()
+        entry1_input = fp.entry1.get()
+        FrontPage.label_entry1(text = entry1_input)
 
 class FrontPage:
     window = tk.Tk()
     window.geometry("640x480")
-    label_temp = tk.Label(text = "mostrando essa janela só pra testar uma coisa kkkkkkkkkkk").pack()
+    label_temp = tk.Label(
+        text = "mostrando essa janela só pra testar uma coisa kkkkkkkkkkk",
+        font = Font(size = 11)).pack()
     label_greet = tk.Label(
         text = f"Welcome to Cashd, your data is stored in:\n{dbm.WORK_DIR}",
         height = 4,
