@@ -3,7 +3,7 @@ import handler as hdl
 
 def prompt_entry():
     print("\nMODO INSERÇÃO:")
-    inp_date = hdl.inp_date_handle(message = "Insira a data [ddbmmaaaa]: ")
+    inp_date = hdl.inp_date_handle(message = "Insira a data [ddmmaaaa]: ")
     inp_time = hdl.inp_time_handle()
     inp_value = hdl.inp_float_handle()
     try:
@@ -27,7 +27,7 @@ def prompt_consult():
          
         elif sel_mode.upper() == "D":
             init_date = hdl.inp_date_handle(message = "Informe a data inicial [ddmmaaaa]: ")
-            end_date = hdl.inp_date_handle(message = "Informe a data final [ddbmmaaaa]: ")
+            end_date = hdl.inp_date_handle(message = "Informe a data final [ddmmaaaa]: ")
 
             dbm.querry_range_entry(init_date, end_date)
 
