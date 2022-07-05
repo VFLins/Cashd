@@ -41,6 +41,7 @@ class FrontPage:
 
     button1 = tk.Button(
         fpage,
-        text = "Do magic", command = button1_click)
+        text = "Do magic",
+        command = button1_click)
     
     fpage.mainloop()
