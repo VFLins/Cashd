@@ -3,14 +3,14 @@ from tkinter import ttk
 from tkinter.font import Font
 import db_manager as dbm
 
-def button1_click(self):
-        with FrontPage() as fp:
-            entry1_input = fp.entry1.get()
-            FrontPage.label_entry1(text = entry1_input)
+def button_click_ins():
+    FrontPage()
 
 class FrontPage:
+    #FPage Settings
     fpage = tk.Tk()
     fpage.option_add("*font", "Segoe-UI 11")
+    fpage.title("ainda ta feio kkkkkkk")
     fpage.geometry("640x480")
     fpage.minsize(640, 480)
 
@@ -32,16 +32,19 @@ class FrontPage:
     separator_sections = ttk.Separator(fpage, orient='horizontal')
     separator_sections.place(y = 80, relwidth = 1)
 
-    label_entry1 = tk.Label(
+    button_toggle_insert = tk.Button(
         fpage,
-        text = "Type Something there:",
-        justify = "left")
+        text = "Insert",
+        borderwidth = 0,
+        font = Font(weight = "bold"))
+    button_toggle_insert.place(x = 30, y = 50)
 
-    entry1 = tk.Entry(fpage)
-
-    button1 = tk.Button(
+    button_toggle_consult = tk.Button(
         fpage,
-        text = "Do magic",
-        command = button1_click)
+        text = "Consult",
+        borderwidth = 0,
+        font = Font(weight = "bold"))
+    button_toggle_consult.place(x = 110, y = 50)
     
     fpage.mainloop()
+    
