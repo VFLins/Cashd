@@ -1,4 +1,3 @@
-from textwrap import fill
 import tkinter as tk
 import tkcalendar
 from tkinter import ttk
@@ -164,6 +163,7 @@ ins_label_value = tk.Label(
     frame_insert, text = "Value (positive for income):",
     width = 30, justify = "left")
 ins_label_value.pack(pady = (10, 0))
+ins_label_value.pack(pady = (10, 0))
 
 ins_option_value = tk.Entry(
     frame_insert, text = "0000,00",
@@ -174,9 +174,20 @@ ins_option_value.pack()
 ins_ok_button = tk.Button(frame_insert, text = "Confirm")
 ins_ok_button.place(
     in_ = ins_option_value, bordermode = "outside",
-    anchor = "se", relx = 1, rely = 1, y = 40)
+    anchor = "se", relx = 1, rely = 1, y = 50)
+
+ins_clear_button = tk.Button(frame_insert, text = "Clear")
+ins_clear_button.place(
+    in_ = ins_ok_button, bordermode = "outside",
+    anchor = "e", relx = 0, x = -5, rely = 0.5)
 
 frame_accounts = tk.Frame(fpage)
+
+acc_label_account = tk.Label(
+    frame_accounts, text = "Accounts:",
+    width = 30, justify = "left")
+acc_label_account.pack(pady = (10, 0))
+
 
 frame_consult = tk.Frame(fpage)
 
