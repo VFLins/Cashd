@@ -12,7 +12,7 @@ BG_COLOR = "white"
 ACCOUNTS = [
     "Yacouba Warin", "Iskra Sho", "Ansgar Asiri", 
     "Eusebia Pawlu", "Rahul Andreas", "Rahul Andreas",
-    "Debora Aline"]
+    "Débora Aline"]
 
 # FrontPage Settings
 fpage = tk.Tk()
