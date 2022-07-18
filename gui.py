@@ -5,7 +5,7 @@ from os import getcwd
 from tkinter import ttk
 from ttkwidgets import autocomplete as tkac
 from tkinter.font import Font
-import db_manager as dbm
+# import db_manager as dbm
 
 FG_COLOR_ACTIVE = "#2e2e2e"
 FG_COLOR = "#2e5077"
@@ -121,11 +121,11 @@ button_toggle_setting.place(
     in_ = button_toggle_consult, bordermode = "outside",
     anchor = "nw", relx = 1, x = 10)
 
-label_greet = tk.Label(
-    fpage,
-    text = f"Welcome to Cashd, your data is stored in:\n{dbm.WORK_DIR}",
-    height = 4, anchor = "ne")
-label_greet
+# label_greet = tk.Label(
+#     fpage,
+#     text = f"Welcome to Cashd, your data is stored in:\n{dbm.WORK_DIR}",
+#     height = 4, anchor = "ne")
+# label_greet
 
 # Separators
 separator_header = ttk.Separator(fpage, orient='vertical')

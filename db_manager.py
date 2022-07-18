@@ -1,4 +1,3 @@
-from ast import Delete
 import datetime as dt
 import sqlalchemy as alch
 from sqlalchemy.orm import sessionmaker, Query
@@ -19,7 +18,7 @@ try:
         WORK_DIR = expanduser("~") + "\\Library\\\Preferences\\Cashd"
         if not isdir(WORK_DIR): mkdir(WORK_DIR)
     elif SYS_NAME =="Linux":
-        WORK_DIR = expanduser("~") + "\\.local\\Share\\Cashd"
+        WORK_DIR = expanduser("~") + "/.local/share/Cashd"
         if not isdir(WORK_DIR): mkdir(WORK_DIR)
     chdir(WORK_DIR)
 except Exception as manage_dir_error:
