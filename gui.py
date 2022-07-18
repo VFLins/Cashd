@@ -1,5 +1,7 @@
+import csv
 import tkinter as tk
 import tkcalendar
+from os import getcwd
 from tkinter import ttk
 from ttkwidgets import autocomplete as tkac
 from tkinter.font import Font
@@ -9,10 +11,10 @@ FG_COLOR_ACTIVE = "#2e2e2e"
 FG_COLOR = "#2e5077"
 BG_COLOR = "white"
 
-ACCOUNTS = [
-    "Yacouba Warin", "Iskra Sho", "Ansgar Asiri", 
-    "Eusebia Pawlu", "Rahul Andreas", "Rahul Andreas",
-    "Débora Aline"]
+
+with open(f"{getcwd()}\\data\\random_names.csv", newline='') as f:
+    reader = csv.reader(f)
+    ACCOUNTS = [str(row) for row in reader]
 
 # FrontPage Settings
 fpage = tk.Tk()
