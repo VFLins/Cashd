@@ -147,7 +147,7 @@ ins_label_account = tk.Label(
 ins_label_account.pack(pady = (10, 0))
 
 ins_option_account = tkac.AutocompleteCombobox(
-    frame_insert, completevalues = ACCOUNTS, width = 30)
+    frame_insert, completevalues = "debere", width = 30)
 ins_option_account.pack()
 
 ins_label_date = tk.Label(
@@ -197,13 +197,13 @@ acc_table_view.heading("#0", text = "", anchor = tk.W)
 for col in acc_table_view["columns"]:
     acc_table_view.heading(col, text = col, anchor = tk.W)
 #adding data on the table
-for row in range(ACCOUNTS):
+for idx, row in enumerate(ACCOUNTS):
     acc_table_view.insert(
         parent = "", 
         index = "end", 
-        iid = row, 
-        text = "eae guei", 
-        values = ACCOUNTS[row])
+        iid = idx, 
+        text = "", 
+        values = row)
 acc_table_view.pack(pady=50)
 
 frame_consult = tk.Frame(fpage)
