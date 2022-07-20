@@ -11,10 +11,9 @@ FG_COLOR_ACTIVE = "#2e2e2e"
 FG_COLOR = "#2e5077"
 BG_COLOR = "white"
 
-
-with open(f"{getcwd()}\\data\\random_names.csv", newline='') as f:
-    reader = csv.reader(f)
-    ACCOUNTS = [str(row) for row in reader]
+with open('C:\\Users\\Dercio\\Documents\\GitHub\\Cashd\\data\\fake_dataset.csv', newline='', encoding="ISO 8859-1") as f:
+    reader = csv.reader(f, delimiter = ";")
+    ACCOUNTS = [tuple(row) for row in reader]
 
 # FrontPage Settings
 fpage = tk.Tk()
@@ -183,13 +182,29 @@ ins_clear_button.place(
     in_ = ins_ok_button, bordermode = "outside",
     anchor = "e", relx = 0, x = -5, rely = 0.5)
 
+## "Accounts" frame
 frame_accounts = tk.Frame(fpage)
 
-acc_label_account = tk.Label(
-    frame_accounts, text = "Accounts:",
-    width = 30, justify = "left")
-acc_label_account.pack(pady = (10, 0))
-
+acc_table_view = ttk.Treeview(frame_accounts)
+acc_table_view["columns"] = [
+    "Code", "Name", "Id", "Phone", "Email", "Street", "Number", "Zip Code", "City"]
+#labels for the table view
+acc_table_view.column("#0", width = 100, minwidth = 20)
+for col in acc_table_view["columns"]:
+    acc_table_view.column(col, width = 80, minwidth = 20, anchor = tk.W)
+#headings for the table view
+acc_table_view.heading("#0", text = "", anchor = tk.W)
+for col in acc_table_view["columns"]:
+    acc_table_view.heading(col, text = col, anchor = tk.W)
+#adding data on the table
+for row in range(ACCOUNTS):
+    acc_table_view.insert(
+        parent = "", 
+        index = "end", 
+        iid = row, 
+        text = "eae guei", 
+        values = ACCOUNTS[row])
+acc_table_view.pack(pady=50)
 
 frame_consult = tk.Frame(fpage)
 
