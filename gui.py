@@ -14,6 +14,7 @@ BG_COLOR = "white"
 with open('C:\\Users\\Dercio\\Documents\\GitHub\\Cashd\\data\\fake_dataset.csv', newline='', encoding="ISO 8859-1") as f:
     reader = csv.reader(f, delimiter = ";")
     ACCOUNTS = [tuple(row) for row in reader]
+ACCOUNTS_NAMES = [x[1] for x in ACCOUNTS]
 
 # FrontPage Settings
 fpage = tk.Tk()
@@ -147,7 +148,7 @@ ins_label_account = tk.Label(
 ins_label_account.pack(pady = (10, 0))
 
 ins_option_account = tkac.AutocompleteCombobox(
-    frame_insert, completevalues = "debere", width = 30)
+    frame_insert, completevalues = ACCOUNTS_NAMES, width = 30)
 ins_option_account.pack()
 
 ins_label_date = tk.Label(
@@ -168,7 +169,8 @@ ins_label_value.pack(pady = (10, 0))
 
 ins_option_value = tk.Entry(
     frame_insert, text = "0000,00",
-    width = 32, relief = "solid")
+    width = 32, relief = "solid",
+    validate = "all")
 ins_option_value.insert(0, "0,00")
 ins_option_value.pack()
 
@@ -189,22 +191,40 @@ acc_table_view = ttk.Treeview(frame_accounts)
 acc_table_view["columns"] = [
     "Code", "Name", "Id", "Phone", "Email", "Street", "Number", "Zip Code", "City"]
 #labels for the table view
-acc_table_view.column("#0", width = 100, minwidth = 20)
+acc_table_view.column("#0", width = 1, minwidth = 1)
 for col in acc_table_view["columns"]:
-    acc_table_view.column(col, width = 80, minwidth = 20, anchor = tk.W)
+    acc_table_view.column(col, width = 65, minwidth = 20, anchor = tk.W)
 #headings for the table view
 acc_table_view.heading("#0", text = "", anchor = tk.W)
 for col in acc_table_view["columns"]:
     acc_table_view.heading(col, text = col, anchor = tk.W)
 #adding data on the table
-for idx, row in enumerate(ACCOUNTS):
+for idx, row in enumerate(ACCOUNTS[1:]):
     acc_table_view.insert(
         parent = "", 
         index = "end", 
         iid = idx, 
         text = "", 
         values = row)
-acc_table_view.pack(pady=50)
+acc_table_view.pack(
+    anchor = "n", fill = "x", expand = True,
+    padx = 20, pady = (10, 0), ipady = 60)
+
+acc_button_edit = tk.Button(frame_accounts, text = "Edit")
+acc_button_edit.place(
+    anchor = "ne", bordermode = "outside",
+    in_ = acc_table_view, 
+    relx = 1, rely = 1, y = 10)
+
+acc_button_ins = tk.Button(frame_accounts, text = "Insert")
+acc_button_ins.place(
+    anchor = "ne", bordermode = "outside",
+    in_ = acc_button_edit, x = -10)
+
+acc_button_del = tk.Button(frame_accounts, text = "Delete")
+acc_button_del.place(
+    anchor = "ne", bordermode = "outside",
+    in_ = acc_button_ins, x = -10)
 
 frame_consult = tk.Frame(fpage)
 
